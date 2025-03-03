@@ -51,8 +51,15 @@ if($ubah=="Simpan"){
 }
 if($rekam2=="Simpan"){
    $rek=mysqli_query($koneksi, "INSERT INTO tb_jam VALUES('','$jamp','$jmlj')");
-   echo $rek;
+   if(mysqli_affected_rows($koneksi) > 0) {
+      $_SESSION['pesan']= "Data berhasil disimpan!";
+   } else {
+      echo "<script>alert('Error: " . mysqli_error($koneksi) . "');</script>";
+      // $_SESSION['pesan'] = 'error : ' . mysqli_error($koneksi);
+   }
+
    header("Location: ../home.php?home=rst&rst2=k2");
+   exit();
 }
 if($ubah2=="Simpan"){
  mysqli_query($koneksi, "UPDATE tb_jam SET jam='$jamp',
