@@ -116,6 +116,8 @@ if (isset($_SESSION['pesan'])) {
   echo "<script>alert('".$_SESSION['pesan']."');</script>";
   unset($_SESSION['pesan']);
 }
+
+print_r($_SESSION)
 ?>
 
 <script type="text/javascript">
