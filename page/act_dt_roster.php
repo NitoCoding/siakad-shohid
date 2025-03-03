@@ -1,4 +1,5 @@
 <?
+session_start();
 include("../koneksi.php");
 
 $thaj=$_COOKIE['thaj'];
@@ -33,9 +34,10 @@ $idg=$_GET['idg'];
 if($rekam=="Simpan"){
    $rek=mysqli_query($koneksi, "INSERT INTO tb_roster VALUES('','$thna','$smester','$kelas')");
    if(mysqli_affected_rows($koneksi) > 0) {
-      echo "<script>alert('Data berhasil disimpan!');</script>";
+      $_SESSION['pesan']= "Data berhasil disimpan!";
    } else {
-      echo "<script>alert('Error: " . mysqli_error($koneksi) . "');</script>";
+      // echo "<script>alert('Error: " . mysqli_error($koneksi) . "');</script>";
+      $_SESSION['pesan'] = mysqli_error($koneksi);
    }
    header("Location: ../home.php?home=rst&rst1=k1");
 }
