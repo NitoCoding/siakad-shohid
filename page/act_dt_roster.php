@@ -35,7 +35,7 @@ if($rekam=="Simpan"){
    if(mysqli_affected_rows($koneksi) > 0) {
       echo "<script>alert('Data berhasil disimpan!');</script>";
    } else {
-      echo "<script>alert('Gagal menyimpan data!');</script>";
+      echo "<script>alert('Error: " . mysqli_error($koneksi) . "');</script>";
    }
    header("Location: ../home.php?home=rst&rst1=k1");
 }
