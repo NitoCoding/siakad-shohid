@@ -37,9 +37,10 @@ if($rekam=="Simpan"){
       $_SESSION['pesan']= "Data berhasil disimpan!";
    } else {
       // echo "<script>alert('Error: " . mysqli_error($koneksi) . "');</script>";
-      $_SESSION['pesan'] = mysqli_error($koneksi);
+      $_SESSION['pesan'] = 'error : ' . mysqli_error($koneksi);
    }
    header("Location: ../home.php?home=rst&rst1=k1");
+   exit();
 }
 if($ubah=="Simpan"){
  mysqli_query($koneksi, "UPDATE tb_roster SET thn_ajaran='$thna',
