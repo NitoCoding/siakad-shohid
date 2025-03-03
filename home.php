@@ -27,10 +27,7 @@ include("function.php");
    $blnk=$_GET['blnk'];
    $tkt=$_GET['tkt']; 
 
-if (isset($_SESSION['pesan'])) {
-   echo "<script>alert('".$_SESSION['pesan']."');</script>";
-   unset($_SESSION['pesan']);
-}
+
 
 if(!empty($idgurp) and !empty($idkusr)){  ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -113,6 +110,13 @@ a:hover {
 }
 .style5 {color: #666666; font-weight: bold; }
 </style>
+
+<?php 
+if (isset($_SESSION['pesan'])) {
+  echo "<script>alert('".$_SESSION['pesan']."');</script>";
+  unset($_SESSION['pesan']);
+}
+?>
 
 <script type="text/javascript">
 function preventBack()
