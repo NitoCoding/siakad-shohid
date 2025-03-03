@@ -1,0 +1,16 @@
+version: '3'
+services:
+  app:
+    build: .
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html
+      - ./images:/var/www/html/images
+      - ./foto_gp:/var/www/html/foto_gp
+      - ./foto_kegiatan:/var/www/html/foto_kegiatan
+      - ./foto_santri:/var/www/html/foto_santri
+      - ./apache.conf:/etc/apache2/httpd.conf
+
+    restart: always
+
